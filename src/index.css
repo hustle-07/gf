@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    overflow: hidden;
+  }
+}
+
+/* Custom romantic glow & glassmorphism utilities */
+.glass-panel {
+  background: rgba(15, 12, 28, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(244, 63, 94, 0.15);
+}
+
+.glass-button {
+  background: linear-gradient(135deg, rgba(225, 29, 72, 0.85) 0%, rgba(190, 18, 60, 0.95) 100%);
+  box-shadow: 0 4px 20px rgba(225, 29, 72, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(225, 29, 72, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.glass-button:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fff2b2 0%, #f6d365 50%, #fda085 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-rose-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #fda4af 40%, #f43f5e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cinematic letterbox bars */
+.letterbox-bar {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Slow spin for landscape guard icon */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 2.8s linear infinite;
+}
+
+/* Slow pulse for glow rings */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 2.5s ease-in-out infinite;
+}
+
+/* Glow pulse for hearts */
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 4px #f43f5e); }
+  50% { filter: drop-shadow(0 0 12px #f43f5e) drop-shadow(0 0 24px #fb7185); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 1.8s ease-in-out infinite;
+}
